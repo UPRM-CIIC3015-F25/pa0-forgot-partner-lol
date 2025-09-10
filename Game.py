@@ -28,7 +28,7 @@ def ball_movement():
     speed = 7
     if start:
         ball_speed_x = speed * random.choice((1, -1))  # Randomize initial horizontal direction
-        ball_speed_y = speed * random.choice((1, -1))  # Randomize initial vertical direction
+        ball_speed_y = speed * random.choice((1, -1)) # Randomize initial vertical direction
         start = False
 
     # Ball collision with the player paddle
@@ -40,7 +40,6 @@ def ball_movement():
             ball_speed_y *= -1  # Reverse ball's vertical direction
             # TODO Task 6: Add sound effects HERE
             sound2.play()
-
 
 
     # Ball collision with top boundary
@@ -88,7 +87,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Pong')  # Set window title
 
 # Colors
-bg_color = pygame.Color('grey12')
+bg_color = pygame.Color('aliceblue')
 
 # Game Rectangles (ball and player paddle)
 ball = pygame.Rect(screen_width / 2 - 15, screen_height / 2 - 15, 30, 30)  # Ball (centered)
@@ -104,7 +103,7 @@ player_speed = 0
 
 # Score Text setup
 score = 0
-basic_font = pygame.font.Font('freesansbold.ttf', 32)  # Font for displaying score
+basic_font = pygame.font.Font('Minecrafter.Reg.ttf', 40)  # Font for displaying score
 
 start = False  # Indicates if the game has started
 
@@ -136,14 +135,16 @@ while True:
 
     # Visuals
     light_grey = pygame.Color('grey83')
-    red = pygame.Color('red')
+    dark_violet = pygame.Color('darkviolet')
     screen.fill(bg_color)  # Clear screen with background color
-    pygame.draw.rect(screen, light_grey, player)  # Draw player paddle
+    pygame.draw.rect(screen, dark_violet, player)  # Draw player paddle
     # TODO Task 3: Change the Ball Color
-    pygame.draw.ellipse(screen, light_grey, ball)  # Draw ball
-    player_text = basic_font.render(f'{score}', False, light_grey)  # Render player score
-    screen.blit(player_text, (screen_width/2 - 15, 10))  # Display score on screen
+    pygame.draw.ellipse(screen, dark_violet, ball)  # Draw ball
+    player_text = basic_font.render(f'{score}', False, "black")  # Render player score
+    screen.blit(player_text, (screen_width / 2 - 15, 10))  # Display score on screen
 
     # Update display
     pygame.display.flip()
     clock.tick(60)  # Maintain 60 frames per second
+
+
