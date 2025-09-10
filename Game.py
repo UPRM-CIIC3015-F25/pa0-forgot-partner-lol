@@ -1,5 +1,18 @@
 import pygame, sys, random
 
+#Soundtrack setup
+pygame.mixer.init()
+pygame.mixer.music.load('BoxCat-Games-Epic-Song(chosic.com).wav')
+pygame.mixer.music.load('vine-boom.wav')
+
+sound1 = pygame.mixer.Sound('BoxCat-Games-Epic-Song(chosic.com).wav')
+sound2 = pygame.mixer.Sound('vine-boom.wav')
+
+sound1.play(loops=-1)
+
+
+
+
 def ball_movement():
     """
     Handles the movement of the ball and collision detection with the player and screen boundaries.
@@ -26,9 +39,8 @@ def ball_movement():
 
             ball_speed_y *= -1  # Reverse ball's vertical direction
             # TODO Task 6: Add sound effects HERE
-            pygame.mixer.init()
-            pygame.mixer.music.load('vine-boom.wav')
-            pygame.mixer.music.play()
+            sound2.play()
+
 
 
     # Ball collision with top boundary
